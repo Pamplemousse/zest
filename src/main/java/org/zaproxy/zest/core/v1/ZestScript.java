@@ -15,7 +15,7 @@ import java.util.Set;
 public class ZestScript extends ZestStatement implements ZestContainer {
 
     /** The Zest version implemented. */
-    public static final String VERSION = "0.8";
+    public static final String VERSION = "0.15";
 
     /** The URL for more info. */
     public static final String ZEST_URL = "https://github.com/zaproxy/zest/";
@@ -440,7 +440,7 @@ public class ZestScript extends ZestStatement implements ZestContainer {
      * @param zestVersion the new zest version
      */
     public void setZestVersion(String zestVersion) {
-        if (!VERSION.equals(zestVersion)) {
+        if (!VERSION.equals(zestVersion) || !VERSION.equals("0.8")) {
             throw new IllegalArgumentException(
                     "Version " + zestVersion + " not supported by this class");
         }

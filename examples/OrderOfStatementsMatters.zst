@@ -1,0 +1,78 @@
+{
+  "about": "This is a Zest script. For more details about Zest visit https://developer.mozilla.org/en-US/docs/Zest",
+  "zestVersion": "0.15",
+  "generatedBy": "OWASP ZAP Dev Build",
+  "title": "",
+  "description": "This Zest script is very humble.",
+  "statements": [
+    {
+      "url": "http://www.mozilla.org",
+      "method": "GET",
+      "followRedirects": true,
+      "index": 1,
+      "enabled": true,
+      "elementType": "ZestRequest"
+    },
+    {
+      "rootExpression": {
+        "code": 200,
+        "elementType": "ZestExpressionStatusCode"
+      },
+      "ifStatements": [
+        {
+          "message": "Status code is 200",
+					"index": 4,
+          "enabled": true,
+          "elementType": "ZestActionPrint"
+        }
+      ],
+      "elseStatements": [
+        {
+          "message": "Status code is *not* 200",
+					"index": 3,
+          "enabled": true,
+          "elementType": "ZestActionPrint"
+        }
+      ],
+      "index": 2,
+      "enabled": true,
+      "elementType": "ZestConditional"
+    },
+    {
+      "url": "http://www.mozilla.org/randomgibberishthatwilltriggera404",
+      "method": "GET",
+      "followRedirects": true,
+      "index": 5,
+      "enabled": true,
+      "elementType": "ZestRequest"
+    },
+    {
+      "rootExpression": {
+        "code": 200,
+        "elementType": "ZestExpressionStatusCode"
+      },
+      "ifStatements": [
+        {
+          "message": "Status code is 200",
+					"index": 8,
+          "enabled": true,
+          "elementType": "ZestActionPrint"
+        }
+      ],
+      "elseStatements": [
+        {
+          "message": "Status code is *not* 200",
+					"index": 7,
+          "enabled": true,
+          "elementType": "ZestActionPrint"
+        }
+      ],
+      "index": 6,
+      "enabled": true,
+      "elementType": "ZestConditional"
+    }
+  ],
+  "index": 0,
+  "enabled": true,
+  "elementType": "ZestScript"
+}

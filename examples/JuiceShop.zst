@@ -1,0 +1,100 @@
+{
+  "about": "This is a Zest script. For more details about Zest visit https://developer.mozilla.org/en-US/docs/Zest",
+  "zestVersion": "0.15",
+  "generatedBy": "OWASP ZAP Dev Build",
+  "title": "Login into the JuiceShop",
+  "description": "This Zest script is very humble.",
+  "statements": [
+		{
+      "windowHandle": "windowhandle",
+      "browserType": "firefox",
+      "url": "http://juice-shop.herokuapp.com",
+      "capabilities": "strictFileInteractability=false",
+      "index": 1,
+      "enabled": true,
+      "elementType": "ZestClientLaunch"
+    },
+		{
+			"type": "cssSelector",
+			"windowHandle": "windowhandle",
+      "index": 2,
+			"element": "button.mat-focus-indicator.close-dialog.mat-raised-button.mat-button-base.mat-primary",
+		  "elementType": "ZestClientElementClick"
+		},
+		{
+			"type": "cssSelector",
+			"windowHandle": "windowhandle",
+      "index": 3,
+			"element": "button#navbarAccount",
+		  "elementType": "ZestClientElementClick"
+		},
+		{
+			"type": "cssSelector",
+			"windowHandle": "windowhandle",
+      "index": 4,
+			"element": "button#navbarLoginButton",
+		  "elementType": "ZestClientElementClick"
+    },
+		{
+			"type": "cssSelector",
+			"windowHandle": "windowhandle",
+      "index": 5,
+			"element": "input#email",
+			"value": "ham@ster.com",
+		  "elementType": "ZestClientElementSendKeys"
+    },
+		{
+			"type": "cssSelector",
+			"windowHandle": "windowhandle",
+      "index": 6,
+			"element": "input#password",
+			"value": "notahamster",
+		  "elementType": "ZestClientElementSendKeys"
+    },
+		{
+			"type": "cssSelector",
+			"windowHandle": "windowhandle",
+      "index": 7,
+			"element": "button#loginButton",
+		  "elementType": "ZestClientElementClick"
+    },
+    {
+      "rootExpression": {
+				"type": "cssSelector",
+				"windowHandle": "windowhandle",
+        "not": false,
+				"element": "button.mat-focus-indicator.buttons.mat-button.mat-button-base.ng-star-inserted",
+        "elementType": "ZestExpressionClientElementExists"
+      },
+      "ifStatements": [
+        {
+          "message": "Successfully logged in!",
+					"index": 13,
+          "enabled": true,
+          "elementType": "ZestActionPrint"
+        }
+      ],
+      "elseStatements": [
+        {
+          "message": "Not logged in :'(",
+					"index": 14,
+          "enabled": true,
+          "elementType": "ZestActionPrint"
+        }
+      ],
+      "index": 12,
+      "enabled": true,
+      "elementType": "ZestConditional"
+		},
+    {
+      "windowHandle": "windowhandle",
+      "sleepInSeconds": 0,
+      "index": 100,
+      "enabled": true,
+      "elementType": "ZestClientWindowClose"
+    }
+  ],
+  "index": 0,
+  "enabled": true,
+  "elementType": "ZestScript"
+}
